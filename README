@@ -1,0 +1,8 @@
+FormFillFlatten is a RESTful web service which allows users to upload a
+PDF template containing form elements, together with the values which
+should used to fill those placeholders. FFF populates the form fields
+and returns a 'flattened' PDF, which allows no further editing.
+
+This software uses iText, which is licensed under the AGPL, and as such
+FormFillFlatten is also AGPL licensed. A copy of the AGPL can be found
+in the file LICENCE in the root directory of this project.
