@@ -15,40 +15,33 @@ public class FormFillFlatten
 {
   public static void main(String args[])
   {
-    PdfReader reader;
-    PdfStamper stamper;
-    FileOutputStream outputStream;
-    BufferedReader jsonReader;
-    
     String jsonFilename = args[0];
     String inputFilename = args[1];
     String outputFilename = args[2];
     
-    StringBuffer jsonData;
-    String currentLine;
-    JSONObject jsonObj;
-    
-    Iterator fieldIterator;
-    
     try
     {
-      jsonReader = new BufferedReader(new FileReader(jsonFilename));
-      outputStream = new FileOutputStream(outputFilename);
-      reader = new PdfReader(inputFilename);
-      stamper = new PdfStamper(reader, outputStream);
+      BufferedReader jsonReader = new BufferedReader(new FileReader(jsonFilename));
+      FileOutputStream outputStream = new FileOutputStream(outputFilename);
+      PdfReader reader = new PdfReader(inputFilename);
+      PdfStamper stamper = new PdfStamper(reader, outputStream);
       
-      jsonData = new StringBuffer();
+      StringBuffer jsonData = new StringBuffer();
+      String currentLine;
       
+      // Read in all the JSON data
       while ((currentLine = jsonReader.readLine()) != null)
       {
         jsonData.append(currentLine);
       }
       
-      jsonObj = new JSONObject(jsonData.toString());
+      // Convert JSON string into an accessible JSON object
+      JSONObject jsonObj = new JSONObject(jsonData.toString());
       
-      fieldIterator = jsonObj.keys();
+      Iterator fieldIterator = jsonObj.keys();
       AcroFields fields = stamper.getAcroFields();
       
+      // Set all the fields based on the JSON config
       while (fieldIterator.hasNext())
       {
         String fieldName = (String) fieldIterator.next();
@@ -57,6 +50,7 @@ public class FormFillFlatten
         fields.setField(fieldName, fieldValue);
       }
       
+      // Flatten and save the PDF
       stamper.setFormFlattening(true);
       stamper.close();
     }
