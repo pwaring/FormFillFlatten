@@ -6,3 +6,34 @@ and returns a 'flattened' PDF, which allows no further editing.
 This software uses iText, which is licensed under the AGPL, and as such
 FormFillFlatten is also AGPL licensed. A copy of the AGPL can be found
 in the file LICENCE in the root directory of this project.
+
+REQUIREMENTS
+
+This software depends on iText 5.0.6 or later. It may work with earlier
+versions, but has not been tested with them.
+
+EXTRACTING DATA FIELDS
+
+In order to provide a mapping of field names to values, you must first
+find out what the field names are for the PDF. The easiest way to do this
+is via the pdftk command, which is available for the majority of Linux
+distributions.
+
+The following command will show you the type and name of each form field
+in a PDF:
+
+pdftk input.pdf dump_data_fields
+
+Example output might be:
+
+--
+FieldType: Text
+FieldName: Text29
+FieldFlags: 0
+FieldValue: Default value for field
+FieldJustification: Left
+--
+
+All you need to care about is the FieldName value, as this is the unique
+name for the field. It may have a sensible name or an auto-generated one
+such as Text29.
