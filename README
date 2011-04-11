@@ -4,13 +4,14 @@ should used to fill those placeholders. FFF populates the form fields
 and returns a 'flattened' PDF, which allows no further editing.
 
 This software uses iText, which is licensed under the AGPL, and as such
-FormFillFlatten is also AGPL licensed. A copy of the AGPL can be found
+FormFillFlatten is also AGPL-licensed. A copy of the AGPL can be found
 in the file LICENCE in the root directory of this project.
 
 REQUIREMENTS
 
-This software depends on iText 5.0.6 or later. It may work with earlier
-versions, but has not been tested with them.
+* Java 1.6.0 or later (tested with OpenJDK 1.6.0_20)
+* iText 5.0.6 or later (tested with 5.0.6)
+* JSON-java
 
 EXTRACTING DATA FIELDS
 
