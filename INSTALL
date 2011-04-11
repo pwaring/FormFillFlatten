@@ -1,54 +1,52 @@
-1. Upload all the files in the repository to a directory on your server.
-
-2. Download the latest version of the iText JAR file from:
+1. Download the latest version of the iText JAR file from:
 
 http://sourceforge.net/projects/itext/files/
 
 Save this file to the same directory as FormFillFlatten.java, and
 rename it itext.jar.
 
-3. Download the latest version of JSON-java from:
+2. Download the latest version of JSON-java from:
 
 https://github.com/douglascrockford/JSON-java
 
-4. Download the latest version of junit from:
+3. Download the latest version of junit from:
 
 https://github.com/KentBeck/junit/downloads
 
 Save this file to the same directory as JSON-java and rename it
 junit.jar.
 
-5. Change to the directory containing JSON-java and run:
+4. Change to the directory containing JSON-java and run:
 
 javac -classpath junit.jar:. *.java
 mkdir -p org/json
 mv *.class org/json/
 jar cf json-org.jar org
 
-6. Copy json-org.jar to the same directory as itext.jar
+5. Copy json-org.jar to the same directory as itext.jar
 
-7. Run the following command to compile the Java class:
+6. Run the following command to compile the Java class:
 
 javac -classpath itext.jar:json-org.jar:. FormFillFlatten.java
 
 You should now have a FormFillFlatten.class file.
 
-8. Set up a new virtual host for this domain.
+7. Set up a new virtual host for this domain.
 
-9. Copy public_html/index.php to the document root of your virtual host.
+8. Copy public_html/index.php to the document root of your virtual host.
 
-10. Copy the following files to the directory above the document root:
+9. Copy the following files to the directory above the document root:
 
 FormFillFlatten.class
 itext.jar
 json-org.jar
 
-11. Edit JAVA_PATH in index.php so that it matches the path to the
+10. Edit JAVA_PATH in index.php so that it matches the path to the
 java command on your system. You can find this by running:
 
 which java
 
 In most cases the default should suffice (/usr/bin/java).
 
-12. Change TMP_DIR to reflect the location for temporary files on your
+11. Change TMP_DIR to reflect the location for temporary files on your
 system. The default should be fine on Linux.
