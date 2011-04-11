@@ -49,3 +49,6 @@ java command on your system. You can find this by running:
 which java
 
 In most cases the default should suffice (/usr/bin/java).
+
+12. Change TMP_DIR to reflect the location for temporary files on your
+system. The default should be fine on Linux.
