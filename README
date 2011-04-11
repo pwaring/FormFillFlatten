@@ -13,6 +13,11 @@ REQUIREMENTS
 * iText 5.0.6 or later (tested with 5.0.6)
 * JSON-java
 * PHP 5.2.0 or later (tested with 5.3.2)
+* Linux web server which supports PHP
+
+You *may* be able to get this working on Windows or Mac OS X, but you
+will have a much smoother ride using a Debian/Ubuntu server running
+Apache and mod_php.
 
 EXTRACTING DATA FIELDS
 
