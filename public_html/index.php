@@ -22,4 +22,9 @@ exec($execstr);
 
 echo file_get_contents($output);
 
+// Remove the temporary files
+unlink($template);
+unlink($config);
+unlink($output);
+
 ?>
